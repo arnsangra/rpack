@@ -62,11 +62,12 @@ else
     else
 
         PCK_NEW_VERSION=`grep -i version  $PCK_PATH/DESCRIPTION | grep -Eo [[:digit:]]\(.[[:digit:]]\)+`
-        BUILD_FILE="$PCK_PATH"'_'"$PCK_NEW_VERSION.tar.gz"
+        BUILD_FILE="$PCK_NAME"'_'"$PCK_NEW_VERSION.tar.gz"
+        BUILD_FILE_PATH="$REP_LOC/$BUILD_FILE"
 
         sudo R CMD REMOVE $PCK_NAME
         sudo R CMD build $PCK_PATH
-        mv "`pwd`/$BUILD_FILE" "$REP_LOC/$BUILD_FILE"
+        mv "`pwd`/$BUILD_FILE $BUILD_FILE_PATH"
         sudo R CMD INSTALL $LIB_PATH $BUILD_FILE
 
         if [[ $keep -ne 1 ]]; then
