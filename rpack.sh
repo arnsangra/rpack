@@ -67,8 +67,8 @@ else
 
         sudo R CMD REMOVE $PCK_NAME
         sudo R CMD build $PCK_PATH
-        mv "`pwd`/$BUILD_FILE $BUILD_FILE_PATH"
         sudo R CMD INSTALL $LIB_PATH $BUILD_FILE
+        mv "`pwd`/$BUILD_FILE" "$HOME/build-packages/$BUILD_FILE"
 
         if [[ $keep -ne 1 ]]; then
             rm -vf $BUILD_FILE
