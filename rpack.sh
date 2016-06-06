@@ -14,7 +14,7 @@ MYTMPDIR=`mktemp -d 2>/dev/null || mktemp -d -t 'mytmpdir'`
 #trap cleanup EXIT
 
 if [[ $OS != 'Darwin' ]]; then
-    LIB_PATH="--library=/usr/local/lib/R/site-library"
+    LIB_PATH="/usr/local/lib/R/site-library"
 else
     LIB_PATH="/Library/Frameworks/R.framework/Versions/3.2/Resources/library"
 fi
